@@ -10,7 +10,7 @@ set nocompatible
 filetype off
 
 " Vundle
-set rtp+=~/.vim/bundle/vundle.vim
+set rtp+=~/.vim/bundle/vundle.vim/
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -26,7 +26,7 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'bling/vim-airline'
 
 " Snippet management: Ultisnips
-Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Bundle 'honza/vim-snippets'
@@ -38,6 +38,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Markdown header in bv YAML
+let g:vim_markdown_frontmatter=1
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -68,8 +71,9 @@ set expandtab           " Save tabs as spaces
 set textwidth=0	" Line wrap (number of cols)
 " }}}
 " UI config {{{
+set guifont=Consolas:h11
 set number	" show line numbers
-set relativenumber " use relative numbers
+"set relativenumber " use relative numbers
 set linebreak   " break lines at word
 set wrap
 set nolist
@@ -98,7 +102,7 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 set showtabline=0  "remove tab bar
 
-set lines=50 columns=100
+set lines=50 columns=120
 " }}}
 " Searching {{{
 set hlsearch	" Highlight all search results
@@ -120,7 +124,7 @@ set showmatch	" Highlight matching brace
 set undolevels=1000	" Number of undo levels
 set backspace=indent,eol,start	" Backspace behaviour
 set noswapfile          " Don't keep swp-files
-set listchars=tab:▸\ ,eol:¬,trail:·
+" set listchars=tab:▸\ ,eol:¬,trail:·
 set spelllang=nl_NL " Use Dutch dictionary
 set nospell " use spelling dictionary
 " }}}
@@ -133,11 +137,12 @@ set fileencodings=utf-8,iso-8859-15
 " }}}
 " Plug-in: CtrlP {{{
 let g:ctrlp_map = '<c-p>' " Change default mapping to C-p
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra' " set working directory
+let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_working_path_mode = '' " set working directory
+cd c:\Users\Ben\Dropbox\
 " }}}
 " Mappings and abbreviations {{{
-inoremap jj <ESC>  " Remap ESC to jk
+inoremap jj <ESC>  " Remap ESC to jj
 nmap w <C-W> " Remap CTRL+W to W for faster window switching
 
 " Faster mapleader
@@ -153,7 +158,7 @@ nnoremap Q gqip
 nmap <leader>w :w!<cr>
 
 " Fast opening of .vimrc
-map <leader>r :e ~/.vimrc<CR>
+map <leader>r :e ~/_vimrc<CR>
 
 " Abbreviations
 iab <expr> ymd strftime("%Y%m%d")
@@ -166,3 +171,4 @@ set whichwrap+=<,>,h,l
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
+
